@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SerenePath | Anxiety Prediction Results</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="../css/result.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script src="../js/tailwind-config.js"></script>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#f7fafb]/70 dark:bg-[#121415]/70 backdrop-blur-xl shadow-sm dark:shadow-none">
+<div class="flex justify-between items-center px-8 h-16 w-full max-w-7xl mx-auto">
+<a href="home.html" class="hover:opacity-80 transition-opacity inline-block">
+<div class="text-xl font-bold text-[#236777] dark:text-[#50a0b0] font-['Manrope'] tracking-tight">SerenePath</div>
+</a>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-[#236777] dark:text-[#50a0b0] border-b-2 border-[#236777] pb-1 font-['Manrope'] tracking-tight" href="#">Analysis</a>
+<a class="text-[#586163] dark:text-[#aab3b6] hover:text-[#236777] transition-colors font-['Manrope'] tracking-tight" href="#">Resources</a>
+<a class="text-[#586163] dark:text-[#aab3b6] hover:text-[#236777] transition-colors font-['Manrope'] tracking-tight" href="#">Support</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 rounded-full hover:bg-[#eff4f6]/50 transition-colors">
+<span class="material-symbols-outlined text-[#236777]">account_circle</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-24 pb-20 px-6 max-w-7xl mx-auto relative">
+<!-- Serenity Glow Decor -->
+<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] serenity-glow opacity-30 pointer-events-none -z-10"></div>
+<!-- Header Section: Asymmetric Layout -->
+<header class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-16">
+<div class="lg:col-span-7">
+<h1 class="font-headline text-5xl md:text-6xl font-extrabold tracking-tight text-primary leading-tight mb-6">
+                    Your Personal<br/>Harmony Analysis
+                </h1>
+<p class="text-on-surface-variant text-lg max-w-xl leading-relaxed">
+                    Based on your clinical markers and self-reported data, we have mapped your current physiological state onto the social anxiety spectrum.
+                </p>
+</div>
+<div class="lg:col-span-5 flex justify-end">
+<div class="bg-surface-container-low p-2 rounded-full inline-flex gap-2">
+<button class="bg-surface-container-lowest text-primary px-6 py-2 rounded-full font-semibold shadow-sm">Analysis</button>
+<button class="text-on-surface-variant px-6 py-2 rounded-full font-medium hover:bg-surface-container transition-colors">Comparison</button>
+</div>
+</div>
+</header>
+<!-- Primary Result & Visualization: Mosaic Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+<!-- Main Gauge Card -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-[2rem] p-10 shadow-[0_20px_40px_rgba(43,52,54,0.04)] border border-outline-variant/10 relative overflow-hidden group">
+<div class="relative z-10">
+<div class="flex flex-col md:flex-row gap-12 items-center">
+<!-- Custom Radial Gauge -->
+<div class="relative w-64 h-64 shrink-0">
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
+<circle class="text-surface-container-low" cx="50" cy="50" fill="transparent" r="44" stroke="currentColor" stroke-width="10"></circle>
+<circle class="text-primary" cx="50" cy="50" fill="transparent" r="44" stroke="currentColor" stroke-dasharray="276" stroke-dashoffset="110" stroke-linecap="round" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-4xl font-headline font-bold text-primary">62%</span>
+<span class="text-label-md font-medium text-on-surface-variant uppercase tracking-widest">Harmony</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-tertiary-container text-on-tertiary-container font-medium text-sm">
+<span class="material-symbols-outlined text-sm">spa</span> Moderate Social Resilience
+                            </div>
+<h2 class="font-headline text-3xl font-bold text-on-surface leading-tight">Your Anxiety Spectrum is Moderate</h2>
+<p class="text-on-surface-variant leading-relaxed">
+                                You are currently experiencing a stable baseline with intermittent spikes in physiological arousal. While social engagement feels manageable, your biological markers indicate a heightened state of "Readiness," which can lead to fatigue if not balanced.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Abstract Background Shape -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary-container/20 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-700"></div>
+</div>
+<!-- Side Action Card -->
+<div class="lg:col-span-4 flex flex-col gap-8">
+<div class="bg-primary text-on-primary rounded-[2rem] p-8 flex-1 flex flex-col justify-between shadow-xl shadow-primary/10">
+<div>
+<span class="material-symbols-outlined text-4xl mb-4" data-icon="clinical_notes">clinical_notes</span>
+<h3 class="font-headline text-2xl font-bold mb-2">Next Steps</h3>
+<p class="text-on-primary/80 text-sm leading-relaxed mb-6">Deep dive into your results with a professional practitioner or archive this report.</p>
+</div>
+<div class="space-y-3">
+<button class="w-full bg-surface-container-lowest text-primary py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-on-primary transition-all active:scale-95">
+                            Book Consultation <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="w-full bg-white/10 text-white py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-white/20 transition-all">
+<span class="material-symbols-outlined">download</span> Download PDF
+                        </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Key Insights: Bento Grid -->
+<section class="mb-20">
+<h3 class="font-headline text-2xl font-bold mb-8 flex items-center gap-3">
+<span class="w-8 h-1 bg-primary rounded-full"></span> Deep Insights
+            </h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Insight 1 -->
+<div class="bg-surface-container-low rounded-xl p-8 hover:bg-surface-container transition-colors duration-300">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="vital_signs">vital_signs</span>
+<h4 class="font-headline text-xl font-bold mb-3">Physiological Arousal</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                        Indicators suggest high sympathetic nervous system activation. This may manifest as heart rate variability during social anticipation.
+                    </p>
+</div>
+<!-- Insight 2 -->
+<div class="bg-surface-container-low rounded-xl p-8 hover:bg-surface-container transition-colors duration-300">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="psychology">psychology</span>
+<h4 class="font-headline text-xl font-bold mb-3">Cognitive Load</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                        Data shows a pattern of "Self-Monitoring" during peak interactions, contributing to mental exhaustion post-engagement.
+                    </p>
+</div>
+<!-- Insight 3 -->
+<div class="bg-surface-container-low rounded-xl p-8 hover:bg-surface-container transition-colors duration-300">
+<span class="material-symbols-outlined text-primary mb-4" data-icon="bedtime">bedtime</span>
+<h4 class="font-headline text-xl font-bold mb-3">Circadian Impact</h4>
+<p class="text-on-surface-variant text-sm leading-relaxed">
+                        Recent sleep hygiene trends correlate with a 15% increase in morning anxiety markers compared to your 30-day average.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Recommendations: Overlapping Layers -->
+<section class="mb-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-5 order-2 lg:order-1">
+<div class="relative">
+<img alt="Meditation and wellness" class="w-full aspect-square object-cover rounded-[3rem] shadow-2xl" data-alt="close-up of person practicing calming breathing meditation in a sunlit modern minimalist space with soft shadows and serene atmosphere" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-nXQnPXoMt3oMYHqbp_0_F5sKHogr9l91Rw69Py1bO0TxVvJKEPUS7cJ6ySX0GcHXBQsJcFmURe09tWfHxEf49oh-h15p8JM8f9idmBLKvXKnOjNmtDYONm3H84UeGhRkI3SA3j4LRX8CX7sOj0tKGmpREDE1DL2t9o5biQjYO-ZJy198BjUGczzYn4_MENNVIkaaY0__JjeNax_Q9umN_z-P1q5-bqAhbpyCGq82dEiEqDFeQRIwbDgAkuX0aVBHff-vIQhRNsI"/>
+<div class="absolute -bottom-6 -right-6 bg-surface-container-lowest p-6 rounded-3xl shadow-xl max-w-xs border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-2">
+<span class="w-3 h-3 rounded-full bg-primary animate-pulse"></span>
+<span class="text-xs font-bold text-primary uppercase tracking-widest">Active Tool</span>
+</div>
+<p class="text-sm font-semibold text-on-surface">Try Box Breathing: 4-4-4-4 rhythm for immediate calming.</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 order-1 lg:order-2">
+<h3 class="font-headline text-4xl font-extrabold mb-8 text-on-surface">Personalized Path to Calm</h3>
+<div class="space-y-6">
+<div class="flex gap-6 group">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container">air</span>
+</div>
+<div>
+<h5 class="font-headline text-lg font-bold mb-1">Paced Respiration Training</h5>
+<p class="text-on-surface-variant text-sm">Dedicate 5 minutes at 10:00 AM to reset your nervous system before peak social demands.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container">event_note</span>
+</div>
+<div>
+<h5 class="font-headline text-lg font-bold mb-1">Exposure Micro-Goals</h5>
+<p class="text-on-surface-variant text-sm">Initiate one low-stakes social interaction today (e.g., ordering coffee in person) to build resilience.</p>
+</div>
+</div>
+<div class="flex gap-6 group">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container">medical_services</span>
+</div>
+<div>
+<h5 class="font-headline text-lg font-bold mb-1">Clinical Follow-up</h5>
+<p class="text-on-surface-variant text-sm">Your results warrant a discussion with a CBT specialist to refine these strategies.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#eff4f6] dark:bg-[#111415] border-t border-[#aab3b6]/15 w-full rounded-t-none">
+<div class="flex flex-col items-center py-12 px-8 gap-6 text-center max-w-7xl mx-auto">
+<div class="text-lg font-semibold text-[#2b3436] dark:text-[#eff4f6]">SerenePath</div>
+<p class="text-sm font-['Inter'] leading-relaxed text-[#586163] dark:text-[#8a9496] max-w-2xl">
+                © 2024 SerenePath Clinical. Clinical assessment results are for informational purposes only and do not substitute professional medical advice. If you are experiencing a crisis, please contact local emergency resources immediately.
+            </p>
+<div class="flex flex-wrap justify-center gap-6">
+<a class="text-sm font-['Inter'] text-[#586163] dark:text-[#8a9496] hover:text-[#236777] dark:hover:text-[#aaeafc] transition-colors" href="#">Privacy Policy</a>
+<a class="text-sm font-['Inter'] text-[#586163] dark:text-[#8a9496] hover:text-[#236777] dark:hover:text-[#aaeafc] transition-colors" href="#">Terms of Service</a>
+<a class="text-sm font-['Inter'] text-[#586163] dark:text-[#8a9496] hover:text-[#236777] dark:hover:text-[#aaeafc] transition-colors" href="#">Clinical Methodology</a>
+<a class="text-sm font-['Inter'] text-[#236777] underline" href="#">Emergency Resources</a>
+</div>
+</div>
+</footer>
+</body></html>
