@@ -61,19 +61,19 @@
 <div class="relative w-64 h-64 shrink-0">
 <svg class="w-full h-full transform -rotate-90" viewbox="0 0 100 100">
 <circle class="text-surface-container-low" cx="50" cy="50" fill="transparent" r="44" stroke="currentColor" stroke-width="10"></circle>
-<circle class="text-primary" cx="50" cy="50" fill="transparent" r="44" stroke="currentColor" stroke-dasharray="276" stroke-dashoffset="110" stroke-linecap="round" stroke-width="12"></circle>
+<circle id="scoreGauge" class="text-primary" cx="50" cy="50" fill="transparent" r="44" stroke="currentColor" stroke-dasharray="276" stroke-dashoffset="110" stroke-linecap="round" stroke-width="12"></circle>
 </svg>
 <div class="absolute inset-0 flex flex-col items-center justify-center">
-<span class="text-4xl font-headline font-bold text-primary">62%</span>
-<span class="text-label-md font-medium text-on-surface-variant uppercase tracking-widest">Harmony</span>
+<span id="scorePercent" class="text-4xl font-headline font-bold text-primary">--%</span>
+<span class="text-label-md font-medium text-on-surface-variant uppercase tracking-widest">Score</span>
 </div>
 </div>
 <div class="space-y-4">
-<div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-tertiary-container text-on-tertiary-container font-medium text-sm">
-<span class="material-symbols-outlined text-sm">spa</span> Moderate Social Resilience
+<div id="resultBadge" class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-tertiary-container text-on-tertiary-container font-medium text-sm">
+<span class="material-symbols-outlined text-sm">spa</span> Waiting for analysis
                             </div>
-<h2 class="font-headline text-3xl font-bold text-on-surface leading-tight">Your Anxiety Spectrum is Moderate</h2>
-<p class="text-on-surface-variant leading-relaxed">
+<h2 id="resultTitle" class="font-headline text-3xl font-bold text-on-surface leading-tight">Complete the assessment to see your result</h2>
+<p id="resultDescription" class="text-on-surface-variant leading-relaxed">
                                 You are currently experiencing a stable baseline with intermittent spikes in physiological arousal. While social engagement feels manageable, your biological markers indicate a heightened state of "Readiness," which can lead to fatigue if not balanced.
                             </p>
 </div>
@@ -101,6 +101,13 @@
 </div>
 </div>
 </div>
+<!-- Model Comparison -->
+<section id="comparisonSection" class="mb-16 hidden">
+<h3 class="font-headline text-2xl font-bold mb-8 flex items-center gap-3">
+<span class="w-8 h-1 bg-primary rounded-full"></span> Model Comparison
+            </h3>
+<div id="comparisonGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</section>
 <!-- Key Insights: Bento Grid -->
 <section class="mb-20">
 <h3 class="font-headline text-2xl font-bold mb-8 flex items-center gap-3">
@@ -196,4 +203,5 @@
 </div>
 </div>
 </footer>
+<script src="../js/result.js"></script>
 </body></html>
