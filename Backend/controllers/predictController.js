@@ -8,7 +8,7 @@ const { mentalHistoryStore } = require('./mentalHistoryController');
 
 const PROJECT_ROOT = path.join(__dirname, '..');
 const SAVED_MODELS_DIR = path.join(PROJECT_ROOT, 'saved_models');
-const PYTHON_BIN = process.env.PYTHON_BIN || process.env.PYTHON || 'python';
+const PYTHON_BIN = process.env.PYTHON_BIN || process.env.PYTHON || (process.platform === 'win32' ? 'python' : 'python3');
 
 const readJsonIfExists = (filename) => {
     const filePath = path.join(SAVED_MODELS_DIR, filename);

@@ -24,14 +24,10 @@
 <a class="text-[#586163] dark:text-[#aab3b6] hover:text-[#236777] transition-colors font-['Manrope'] tracking-tight" href="#">Resources</a>
 <a class="text-[#586163] dark:text-[#aab3b6] hover:text-[#236777] transition-colors font-['Manrope'] tracking-tight" href="#">Support</a>
 </div>
-<div class="flex items-center gap-4">
-<button class="p-2 rounded-full hover:bg-[#eff4f6]/50 transition-colors">
-<span class="material-symbols-outlined text-[#236777]">account_circle</span>
-</button>
-</div>
+
 </div>
 </nav>
-<main class="pt-24 pb-20 px-6 max-w-7xl mx-auto relative">
+<main id="pdfContent" class="pt-24 pb-20 px-6 max-w-7xl mx-auto relative">
 <!-- Serenity Glow Decor -->
 <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] serenity-glow opacity-30 pointer-events-none -z-10"></div>
 <!-- Header Section: Asymmetric Layout -->
@@ -94,7 +90,7 @@
 <button class="w-full bg-surface-container-lowest text-primary py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-on-primary transition-all active:scale-95">
                             Book Consultation <span class="material-symbols-outlined">arrow_forward</span>
 </button>
-<button class="w-full bg-white/10 text-white py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-white/20 transition-all">
+<button id="downloadPdfBtn" class="w-full bg-white/10 text-white py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-white/20 transition-all">
 <span class="material-symbols-outlined">download</span> Download PDF
                         </button>
 </div>
@@ -203,5 +199,6 @@
 </div>
 </div>
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script src="../js/result.js"></script>
 </body></html>

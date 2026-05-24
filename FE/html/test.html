@@ -23,12 +23,11 @@
 </div>
 </div>
 <div class="flex items-center gap-4">
-<button class="px-6 py-2 rounded-full text-secondary-dim font-semibold hover:opacity-80 transition-all">Login</button>
 <button class="px-6 py-2 rounded-full bg-gradient-to-br from-primary to-primary-dim text-on-primary font-semibold shadow-md active:scale-95 duration-150 transition-all">Get Started</button>
 </div>
 </div>
 </nav>
-<main class="relative pt-32 pb-20 px-6">
+<main id="pdfContent" class="relative pt-32 pb-20 px-6">
 <!-- Serenity Glow Background Decorations -->
 <div class="absolute top-0 right-0 w-[600px] h-[600px] serenity-glow -z-10 translate-x-1/2 -translate-y-1/4"></div>
 <div class="absolute bottom-0 left-0 w-[500px] h-[500px] serenity-glow -z-10 -translate-x-1/4 translate-y-1/4"></div>
@@ -60,7 +59,7 @@
 <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
 <div class="md:col-span-4 p-8 rounded-2xl bg-surface-container-low shadow-sm border border-outline-variant/10">
 <label class="block text-sm font-semibold text-on-surface-variant mb-3">Age</label>
-<input id="ageInput" class="w-full bg-surface-container-highest border-none rounded-xl p-4 text-on-surface focus:bg-surface-container-lowest transition-all" placeholder="Years" type="number"/>
+<input id="ageInput" class="w-full bg-surface-container-highest border-none rounded-xl p-4 text-on-surface focus:bg-surface-container-lowest transition-all" placeholder="Age" type="number" min="0" max="120"/>
 </div>
 <div class="md:col-span-4 p-8 rounded-2xl bg-surface-container-low shadow-sm border border-outline-variant/10">
 <label class="block text-sm font-semibold text-on-surface-variant mb-3">Gender Identity</label>
@@ -74,7 +73,22 @@
 </div>
 <div class="md:col-span-4 p-8 rounded-2xl bg-surface-container-low shadow-sm border border-outline-variant/10">
 <label class="block text-sm font-semibold text-on-surface-variant mb-3">Occupation</label>
-<input id="occupationInput" class="w-full bg-surface-container-highest border-none rounded-xl p-4 text-on-surface focus:bg-surface-container-lowest transition-all" placeholder="Current Role" type="text"/>
+<select id="occupationInput" class="w-full bg-surface-container-highest border-none rounded-xl p-4 text-on-surface focus:bg-surface-container-lowest transition-all">
+<option value="">-- Select Occupation --</option>
+<option>Musician</option>
+<option>Artist</option>
+<option>Student</option>
+<option>Nurse</option>
+<option>Chef</option>
+<option>Doctor</option>
+<option>Freelancer</option>
+<option>Engineer</option>
+<option>Scientist</option>
+<option>Athlete</option>
+<option>Lawyer</option>
+<option>Teacher</option>
+<option>Other</option>
+</select>
 </div>
 </div>
 </section>
@@ -104,13 +118,11 @@
 </div>
 </div>
 <div class="md:col-span-2 p-8 rounded-2xl bg-surface-container-low shadow-sm">
-<label class="block text-sm font-semibold text-on-surface-variant mb-3">Caffeine Intake</label>
-<select id="caffeinInput" class="w-full bg-surface-container-highest border-none rounded-xl p-3 text-on-surface">
-<option value="">-- Select --</option>
-<option>None</option>
-<option>Moderate</option>
-<option>High</option>
-</select>
+<label class="block text-sm font-semibold text-on-surface-variant mb-3">Caffeine Intake (mg/day)</label>
+<div class="flex items-center gap-2">
+<input id="caffeinInput" class="w-full bg-surface-container-highest border-none rounded-xl p-3 text-on-surface focus:bg-surface-container-lowest transition-all" placeholder="e.g. 200" type="number" min="0" max="2000" step="10"/>
+<span class="text-xs text-on-surface-variant shrink-0">mg/day</span>
+</div>
 </div>
 <div class="md:col-span-2 p-8 rounded-2xl bg-surface-container shadow-sm">
 <label class="block text-sm font-semibold text-on-surface-variant mb-3">Smoking</label>
@@ -120,8 +132,8 @@
 </div>
 </div>
 <div class="md:col-span-2 p-8 rounded-2xl bg-surface-container shadow-sm">
-<label class="block text-sm font-semibold text-on-surface-variant mb-3">Alcohol (Times/Week)</label>
-<input id="alcoholInput" class="w-full bg-surface-container-highest border-none rounded-lg p-3 text-on-surface focus:bg-surface-container-lowest transition-all" placeholder="0-100" type="number" min="0" max="100"/>
+<label class="block text-sm font-semibold text-on-surface-variant mb-3">Alcohol (Drinks/Week)</label>
+<input id="alcoholInput" class="w-full bg-surface-container-highest border-none rounded-lg p-3 text-on-surface focus:bg-surface-container-lowest transition-all" placeholder="0-100" type="number" min="0" max="100" step="1"/>
 </div>
 <div class="md:col-span-2 p-8 rounded-2xl bg-surface-container-low shadow-sm">
 <label class="block text-sm font-semibold text-on-surface-variant mb-3">Physical Activity</label>
@@ -146,7 +158,7 @@
                                     Heart Rate (BPM)
                                     <span class="material-symbols-outlined text-primary text-base">pulse_alert</span>
 </label>
-<input id="heartRateInput" class="w-full bg-surface-container border-none rounded-xl p-4 text-2xl font-bold text-primary" placeholder="72" type="number"/>
+<input id="heartRateInput" class="w-full bg-surface-container border-none rounded-xl p-4 text-2xl font-bold text-primary" placeholder="72" type="number" min="0"/>
 <p class="text-xs text-on-surface-variant">Standard resting heart rate for adults is 60–100 bpm.</p>
 </div>
 <div class="space-y-4">
@@ -155,10 +167,15 @@
                                     <span class="material-symbols-outlined text-primary text-base">psychology</span>
 </label>
 <div class="grid grid-cols-5 gap-2">
+<button data-stress-level data-value="1" class="h-10 rounded-lg bg-surface-container-highest hover:bg-primary hover:text-on-primary transition-all font-bold" type="button">1</button>
 <button data-stress-level data-value="2" class="h-10 rounded-lg bg-surface-container-highest hover:bg-primary hover:text-on-primary transition-all font-bold" type="button">2</button>
+<button data-stress-level data-value="3" class="h-10 rounded-lg bg-surface-container-highest hover:bg-primary hover:text-on-primary transition-all font-bold" type="button">3</button>
 <button data-stress-level data-value="4" class="h-10 rounded-lg bg-surface-container-highest hover:bg-primary hover:text-on-primary transition-all font-bold" type="button">4</button>
+<button data-stress-level data-value="5" class="h-10 rounded-lg bg-surface-container-highest hover:bg-primary hover:text-on-primary transition-all font-bold" type="button">5</button>
 <button data-stress-level data-value="6" class="h-10 rounded-lg bg-surface-container-highest hover:bg-primary hover:text-on-primary transition-all font-bold" type="button">6</button>
+<button data-stress-level data-value="7" class="h-10 rounded-lg bg-surface-container-highest hover:bg-primary hover:text-on-primary transition-all font-bold" type="button">7</button>
 <button data-stress-level data-value="8" class="h-10 rounded-lg bg-surface-container-highest hover:bg-primary hover:text-on-primary transition-all font-bold" type="button">8</button>
+<button data-stress-level data-value="9" class="h-10 rounded-lg bg-surface-container-highest hover:bg-primary hover:text-on-primary transition-all font-bold" type="button">9</button>
 <button data-stress-level data-value="10" class="h-10 rounded-lg bg-surface-container-highest hover:bg-primary hover:text-on-primary transition-all font-bold" type="button">10</button>
 </div>
 </div>
@@ -178,7 +195,7 @@
 </div>
 </div>
 </div>
-<div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
 <div class="flex items-center justify-between p-6 rounded-2xl bg-surface-container-low border border-outline-variant/15">
 <div class="flex gap-4 items-center">
 <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -203,7 +220,25 @@
 <p class="text-sm text-on-surface-variant">Current prescriptions or OTC</p>
 </div>
 </div>
-<button data-medication-btn class="px-4 py-2 bg-primary text-on-primary rounded-full text-xs font-bold" type="button">YES</button>
+<div class="flex gap-2">
+<button data-medication-btn data-value="yes" class="px-4 py-2 bg-surface-container-highest text-on-surface-variant hover:bg-surface-container-lowest rounded-full text-xs font-bold transition-all" type="button">YES</button>
+<button data-medication-btn data-value="no" class="px-4 py-2 bg-surface-container-highest text-on-surface-variant hover:bg-surface-container-lowest rounded-full text-xs font-bold transition-all" type="button">NO</button>
+</div>
+</div>
+<div class="flex items-center justify-between p-6 rounded-2xl bg-surface-container-low border border-outline-variant/15">
+<div class="flex gap-4 items-center">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary">sick</span>
+</div>
+<div>
+<h4 class="font-bold">Dizziness</h4>
+<p class="text-sm text-on-surface-variant">Lightheadedness symptoms</p>
+</div>
+</div>
+<div class="flex gap-2">
+<button data-dizziness-btn data-value="yes" class="px-4 py-2 bg-surface-container-highest text-on-surface-variant hover:bg-surface-container-lowest rounded-full text-xs font-bold transition-all" type="button">YES</button>
+<button data-dizziness-btn data-value="no" class="px-4 py-2 bg-surface-container-highest text-on-surface-variant hover:bg-surface-container-lowest rounded-full text-xs font-bold transition-all" type="button">NO</button>
+</div>
 </div>
 </div>
 </div>
@@ -230,15 +265,16 @@
 <span class="material-symbols-outlined text-lg">medical_services</span>
                                     Therapy Sessions / Month
                                 </label>
-<input id="therapySessionsInput" class="w-full bg-tertiary-container/30 border-none rounded-lg p-3 text-tertiary focus:bg-tertiary-container/50 transition-all" placeholder="0-30" type="number" min="0" max="30"/>
+<input id="therapySessionsInput" class="w-full bg-tertiary-container/30 border-none rounded-lg p-3 text-tertiary focus:bg-tertiary-container/50 transition-all" placeholder="0-30" type="number" min="0" max="30" step="1"/>
 </div>
 <div class="p-8 rounded-2xl bg-secondary-container/20 border border-secondary-container/40">
 <h4 class="font-bold text-on-secondary-container mb-3 flex items-center gap-2">
 <span class="material-symbols-outlined text-lg">air</span>
                                     Breathing Rate
                                 </h4>
-<input id="breathingRateInput" class="w-full bg-secondary-container/30 border-none rounded-lg p-3 text-on-secondary-container focus:bg-secondary-container/50 transition-all" placeholder="Breaths/min" type="number" min="1" max="60"/>
-<p class="text-xs font-semibold text-on-secondary-container/80 mt-3">Typical adult resting range is around 12-20 breaths/min.</p>
+<input id="breathingRateInput" class="w-full bg-secondary-container/30 border-none rounded-lg p-3 text-on-secondary-container focus:bg-secondary-container/50 transition-all" placeholder="breaths/min" type="number" min="0" max="60"/>
+<p class="text-xs text-on-secondary-container/60 mt-2">breaths/min</p>
+
 </div>
 </div>
 </div>
@@ -283,6 +319,46 @@
 </div>
 </form>
 </div>
+<section id="resultSection" class="hidden mt-16 pt-16 border-t border-outline-variant/20">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-16">
+<!-- Main Gauge Card -->
+<div class="lg:col-span-8 bg-surface-container-lowest rounded-[2rem] p-10 shadow-[0_20px_40px_rgba(43,52,54,0.04)] border border-outline-variant/10 relative overflow-hidden group">
+<div class="relative z-10">
+<div class="flex flex-col md:flex-row gap-12 items-center">
+
+<div class="space-y-4">
+<div class="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-tertiary-container text-on-tertiary-container font-medium text-sm" id="resultBadge">
+<span class="material-symbols-outlined text-sm">spa</span> Waiting for analysis
+                            </div>
+<h2 class="font-headline text-3xl font-bold text-on-surface leading-tight" id="resultTitle">Complete the assessment to see your result</h2>
+<span id="resultAnxietyLevel" style="display:none;"></span>
+<p class="text-on-surface-variant leading-relaxed" id="resultDescription">
+                                You are currently experiencing a stable baseline with intermittent spikes in physiological arousal. While social engagement feels manageable, your biological markers indicate a heightened state of "Readiness," which can lead to fatigue if not balanced.
+                            </p>
+</div>
+</div>
+</div>
+<!-- Abstract Background Shape -->
+<div class="absolute -right-20 -bottom-20 w-80 h-80 bg-primary-container/20 rounded-full blur-3xl group-hover:scale-110 transition-transform duration-700"></div>
+</div>
+<!-- Side Action Card -->
+<div class="lg:col-span-4 flex flex-col gap-8">
+<div class="bg-primary text-on-primary rounded-[2rem] p-8 flex-1 flex flex-col justify-between shadow-xl shadow-primary/10">
+
+<button class="w-full bg-white/10 text-white py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-white/20 transition-all" id="downloadPdfBtn">
+<span class="material-symbols-outlined">download</span> Download PDF
+                        </button>
+</div>
+</div>
+</div>
+</div><section class="mb-16 hidden" id="comparisonSection">
+<h3 class="font-headline text-2xl font-bold mb-8 flex items-center gap-3">
+<span class="w-8 h-1 bg-primary rounded-full"></span> Model Comparison
+            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="comparisonGrid"></div>
+
+</section>
+
 </main>
 <!-- Footer -->
 <footer class="w-full py-12 mt-20 bg-surface-container-low">
@@ -317,5 +393,6 @@
 <p class="text-sm text-on-surface-variant">© 2024 SerenePath Clinical. Empathetic Anchor Design.</p>
 </div>
 </footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="../js/test.js"></script>
 </body></html>

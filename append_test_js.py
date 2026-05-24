@@ -1,12 +1,62 @@
-function getPrediction() {
-  try {
-    const rawPrediction = localStorage.getItem('serenePathPrediction');
-    return rawPrediction ? JSON.parse(rawPrediction) : null;
-  } catch (error) {
-    return null;
-  }
-}
+with open('FE/js/test.js', 'r', encoding='utf-8') as f:
+    content = f.read()
 
+# I will replace the submitPrediction block entirely, and append the new functions at the end of the file.
+import re
+
+submit_func = """async function submitPrediction(event) {
+  event.preventDefault();
+
+  const submitButton = event.submitter || document.querySelector('#assessmentForm button[type="submit"]');
+  const payload = buildPredictionPayload();
+  const missingFields = getMissingFields(payload);
+
+  if (missingFields.length > 0) {
+    alert(`Please complete these fields first: ${missingFields.join(', ')}`);
+    return;
+  }
+
+  const originalButtonHtml = submitButton?.innerHTML;
+  if (submitButton) {
+    submitButton.disabled = true;
+    submitButton.innerHTML = 'Generating Prediction... <span class="material-symbols-outlined">hourglass_top</span>';
+  }
+
+  try {
+    const modelNames = getSelectedModelNames();
+    const predictions = await Promise.all(
+      modelNames.map((modelName) => requestPrediction(payload, modelName))
+    );
+
+    const selectedPrediction = predictions.find((prediction) => prediction.input?.model_name === payload.model_name) || predictions[0];
+    const finalPrediction = {
+      ...selectedPrediction,
+      comparisons: predictions
+    };
+    
+    // Display result inline instead of redirecting
+    displayResult(finalPrediction);
+    
+    // Hide submit button and show result section
+    if (submitButton) submitButton.parentElement.style.display = 'none';
+    const resultSection = document.getElementById('resultSection');
+    if (resultSection) {
+      resultSection.classList.remove('hidden');
+      resultSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  } catch (error) {
+    alert(`Cannot generate prediction yet: ${error.message}`);
+  } finally {
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.innerHTML = originalButtonHtml;
+    }
+  }
+}"""
+
+content = re.sub(r'async function submitPrediction\(event\) \{[\s\S]*?(?=\n// Add event listeners to track input changes)', submit_func + '\n', content)
+
+additional_code = """
 function getResultCopy(level) {
   const normalizedLevel = String(level || '').toLowerCase();
 
@@ -82,12 +132,8 @@ function renderComparison(comparisons, primaryModelFile) {
     .join('');
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  const prediction = getPrediction();
-
-  if (!prediction) {
-    return;
-  }
+function displayResult(prediction) {
+  if (!prediction) return;
 
   const score = prediction.predicted_score;
   const roundedLevel = prediction.rounded_level;
@@ -116,7 +162,11 @@ document.addEventListener('DOMContentLoaded', function() {
   
   const downloadBtn = document.getElementById('downloadPdfBtn');
   if (downloadBtn) {
-    downloadBtn.addEventListener('click', function(e) {
+    // remove previous listeners to avoid duplicates if submitted multiple times
+    const newBtn = downloadBtn.cloneNode(true);
+    downloadBtn.parentNode.replaceChild(newBtn, downloadBtn);
+    
+    newBtn.addEventListener('click', function(e) {
       e.preventDefault();
       const element = document.getElementById('pdfContent');
       const opt = {
@@ -127,19 +177,25 @@ document.addEventListener('DOMContentLoaded', function() {
         jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
       };
       
-      const originalText = downloadBtn.innerHTML;
-      downloadBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span> Generating...';
-      downloadBtn.disabled = true;
+      const originalText = newBtn.innerHTML;
+      newBtn.innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span> Generating...';
+      newBtn.disabled = true;
       
       html2pdf().set(opt).from(element).save().then(() => {
-        downloadBtn.innerHTML = originalText;
-        downloadBtn.disabled = false;
+        newBtn.innerHTML = originalText;
+        newBtn.disabled = false;
       }).catch(err => {
         console.error("PDF generation failed:", err);
-        downloadBtn.innerHTML = originalText;
-        downloadBtn.disabled = false;
+        newBtn.innerHTML = originalText;
+        newBtn.disabled = false;
         alert("Failed to generate PDF. Please try again.");
       });
     });
   }
-});
+}
+"""
+
+content += additional_code
+
+with open('FE/js/test.js', 'w', encoding='utf-8') as f:
+    f.write(content)
