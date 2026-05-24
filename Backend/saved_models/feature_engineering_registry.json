@@ -1,0 +1,78 @@
+{
+  "models": [
+    {
+      "name": "stress_features",
+      "display_name": "Stress_Features",
+      "filename": "best_model_stress_features.pkl",
+      "metrics": {
+        "mae": 0.8146356171705722,
+        "mse": 1.0409609939796565,
+        "rmse": 1.0202749599885594,
+        "r2": 0.7689372058379045
+      },
+      "is_best": true
+    },
+    {
+      "name": "combined_features",
+      "display_name": "Combined_Features",
+      "filename": "best_model_combined_features.pkl",
+      "metrics": {
+        "mae": 0.8162953983526913,
+        "mse": 1.0444183840577663,
+        "rmse": 1.0219678977628242,
+        "r2": 0.7681697666960188
+      },
+      "is_best": false
+    },
+    {
+      "name": "interaction_features",
+      "display_name": "Interaction_Features",
+      "filename": "best_model_interaction_features.pkl",
+      "metrics": {
+        "mae": 0.8245722693091257,
+        "mse": 1.0583020823187053,
+        "rmse": 1.0287381019086954,
+        "r2": 0.7650879930925606
+      },
+      "is_best": false
+    },
+    {
+      "name": "original",
+      "display_name": "Original",
+      "filename": "best_model_original.pkl",
+      "metrics": {
+        "mae": 0.8253240808519505,
+        "mse": 1.055654856411791,
+        "rmse": 1.027450658869705,
+        "r2": 0.7656755995623203
+      },
+      "is_best": false
+    },
+    {
+      "name": "lifestyle_features",
+      "display_name": "Lifestyle_Features",
+      "filename": "best_model_lifestyle_features.pkl",
+      "metrics": {
+        "mae": 0.8256921549728955,
+        "mse": 1.0516262797046536,
+        "rmse": 1.025488312807442,
+        "r2": 0.7665698253746525
+      },
+      "is_best": false
+    },
+    {
+      "name": "physiological_features",
+      "display_name": "Physiological_Features",
+      "filename": "best_model_physiological_features.pkl",
+      "metrics": {
+        "mae": 0.8269666083767553,
+        "mse": 1.0622918496787828,
+        "rmse": 1.0306754337223638,
+        "r2": 0.7642023818164341
+      },
+      "is_best": false
+    }
+  ],
+  "best_feature_engineering": "stress_features",
+  "best_feature_engineering_file": "best_model_stress_features.pkl"
+}

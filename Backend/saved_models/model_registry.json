@@ -1,0 +1,91 @@
+{
+  "models": [
+    {
+      "name": "random_forest",
+      "display_name": "Random Forest Regressor",
+      "filename": "random_forest.pkl",
+      "metrics": {
+        "mae": 0.8253240808519505,
+        "mse": 1.055654856411791,
+        "rmse": 1.027450658869705,
+        "r2": 0.7656755995623203
+      },
+      "best_params": {
+        "model__max_depth": 20,
+        "model__min_samples_leaf": 2,
+        "model__min_samples_split": 2,
+        "model__n_estimators": 200
+      },
+      "is_best": true
+    },
+    {
+      "name": "xgboost",
+      "display_name": "XGBoost Regressor",
+      "filename": "xgboost.pkl",
+      "metrics": {
+        "mae": 0.8560640836032954,
+        "mse": 1.1640075646154988,
+        "rmse": 1.0788918224805946,
+        "r2": 0.741624477899381
+      },
+      "best_params": {
+        "model__colsample_bytree": 0.8,
+        "model__learning_rate": 0.03,
+        "model__max_depth": 5,
+        "model__n_estimators": 200,
+        "model__subsample": 0.8
+      },
+      "is_best": false
+    },
+    {
+      "name": "gradient_boosting",
+      "display_name": "Gradient Boosting Regressor",
+      "filename": "gradient_boosting.pkl",
+      "metrics": {
+        "mae": 0.8626557001801055,
+        "mse": 1.1884124107855847,
+        "rmse": 1.0901432982803612,
+        "r2": 0.7362073181981345
+      },
+      "best_params": {
+        "model__learning_rate": 0.05,
+        "model__max_depth": 5,
+        "model__n_estimators": 100
+      },
+      "is_best": false
+    },
+    {
+      "name": "svr",
+      "display_name": "SVR",
+      "filename": "svr.pkl",
+      "metrics": {
+        "mae": 0.9284900321026976,
+        "mse": 1.3776110557037713,
+        "rmse": 1.1737167697974547,
+        "r2": 0.6942107709698406
+      },
+      "best_params": {
+        "model__C": 1,
+        "model__epsilon": 0.2,
+        "model__kernel": "rbf"
+      },
+      "is_best": false
+    },
+    {
+      "name": "linear_regression",
+      "display_name": "Linear Regression",
+      "filename": "linear_regression.pkl",
+      "metrics": {
+        "mae": 0.9773735645831008,
+        "mse": 1.4968558439846944,
+        "rmse": 1.223460601729657,
+        "r2": 0.6677419271526284
+      },
+      "best_params": {},
+      "is_best": false
+    }
+  ],
+  "best_model": "random_forest",
+  "best_model_file": "best_model.pkl",
+  "final_model": "final_anxiety_prediction_model.pkl"
+}
