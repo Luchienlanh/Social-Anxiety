@@ -29,7 +29,7 @@
       "display_name": "Interaction_Features",
       "filename": "best_model_interaction_features.pkl",
       "metrics": {
-        "mae": 0.8245722693091257,
+        "mae": 0.8245722693091256,
         "mse": 1.0583020823187053,
         "rmse": 1.0287381019086954,
         "r2": 0.7650879930925606
@@ -66,8 +66,8 @@
       "filename": "best_model_physiological_features.pkl",
       "metrics": {
         "mae": 0.8269666083767553,
-        "mse": 1.0622918496787828,
-        "rmse": 1.0306754337223638,
+        "mse": 1.062291849678783,
+        "rmse": 1.030675433722364,
         "r2": 0.7642023818164341
       },
       "is_best": false
