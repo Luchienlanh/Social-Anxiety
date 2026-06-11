@@ -9,6 +9,22 @@ The project contains:
 - A static HTML/CSS/JavaScript frontend.
 - A Jupyter notebook for data analysis, model training, model comparison, feature engineering, and model export.
 
+## Screenshots
+
+The screenshots below were captured from the running local application, not generated mockups.
+
+### Home Page
+
+![Home Page](docs/screenshots/home.png)
+
+### Assessment Form
+
+![Assessment Form](docs/screenshots/assessment.png)
+
+### Prediction Result
+
+![Prediction Result](docs/screenshots/result.png)
+
 ## Project Structure
 
 ```text

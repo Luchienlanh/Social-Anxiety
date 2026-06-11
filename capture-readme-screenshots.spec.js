@@ -1,6 +1,6 @@
 const fs = require('fs');
 const path = require('path');
-const { test } = require('playwright/test');
+const { test } = require('@playwright/test');
 
 const screenshotsDir = path.join(__dirname, 'docs', 'screenshots');
 
